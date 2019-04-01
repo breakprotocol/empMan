@@ -1,0 +1,39 @@
+{
+    "title": "Create Draw Format",
+    "name": "DrawFormat",
+    "jsonPage": "viewDrawFormat",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["DrawFormat"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitDrawFormat",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewDrawFormat"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewDrawFormat"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "DrawFormat/save"
+    }
+}

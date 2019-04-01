@@ -1,0 +1,91 @@
+{
+    "title": "Create Sport",
+    "name": "Sport",
+    "jsonPage": "viewSport",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Sport"],
+    "fields": [{
+        "name": "Gender",
+        "type": "tags",
+        "tableRef": "gender",
+        "placeholder": "Select Gender",
+        "id": "gender",
+        "validation": ["", "trim", ""],
+        "onView": true,
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["Male", "Female"]
+    }, {
+        "name": "Min Players",
+        "type": "text",
+        "tableRef": "minTeamPlayers",
+        "placeholder": "Enter Min Players",
+        "id": "minPlayers",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Max Players",
+        "type": "text",
+        "tableRef": "maxTeamPlayers",
+        "placeholder": "Enter Max Players",
+        "id": "maxPlayers",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Sports List",
+        "type": "tags",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "tableRef": "sportslist",
+        "searchApi": "searchCall",
+        "placeholder": "Enter sports list",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "SportsList/search"
+    }, {
+        "name": "Age Group",
+        "type": "tags",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "tableRef": "ageGroup",
+        "searchApi": "searchCall",
+        "placeholder": "Enter age group",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "AgeGroup/search"
+    }, {
+        "name": "Weight",
+        "type": "selectFromTable",
+        "dropDownType": "single",
+        "tableRef": "Weight",
+        "searchApi": "searchCall",
+        "placeholder": "Enter first category",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Weight/search"
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSport",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSport"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSport"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Sport/save"
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "title": "Create Age Group",
+    "name": "AgeGroup",
+    "jsonPage": "viewAgeGroup",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["AgeGroup"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitAgeGroup",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewAgeGroup"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewAgeGroup"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "AgeGroup/save"
+    }
+}

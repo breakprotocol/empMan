@@ -1,0 +1,53 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">Create Excel</h3>
+</div>
+<div class="modal-body">
+  <form name="detailForm" role="form" class="sec">
+    <div class="modal-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Draw Formats</label>
+            <select name="selectDraws" class="form-control" ng-model="form.resultType" required>
+                  <option  value="knockout">Knockout</option>
+                  <option  value="heat">Heat</option>
+                  <option  value="direct-final">Direct Final</option>
+                  <option  value="league-cum-knockout">League cum Knockout</option>
+                  <option  value="qualifying-knockout">Qualifying Knockout</option>
+                  <option  value="qualifying-round">Qualifying Round</option>
+                  <option  value="swiss-league">Swiss League</option>
+              </select>
+            <div class="error-msg" ng-if="detailForm.selectDraws.$invalid && detailForm.selectDraws.$touched">Please Enter Valid Draw *</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- SPORT TYPE -->
+          <div class="form-group" ng-if="form.resultType!='qualifying-knockout'&&form.resultType!='qualifying-round'&&form.resultType!='direct-final'">
+            <label>Sport Type</label>
+            <select name="selectplayer" class="form-control" ng-model="form.playerType">
+            <option  value="team">Team</option>
+            <option  value="individual">Individual</option>
+          </select>
+            <!--<div class="error-msg" ng-if="detailForm.selectplayer.$invalid && detailForm.selectplayer.$touched">Please Enter Valid Player Type *</div>-->
+          </div>
+
+          <div class="form-group" ng-if="form.resultType=='qualifying-knockout'">
+            <label>Excel Type</label>
+            <select name="selectplayer" class="form-control" ng-model="form.excelType">
+            <option  value="qualifying">Qualifying</option>
+            <option  value="knockout">Knockout</option>
+          </select>
+            <!--<div class="error-msg" ng-if="detailForm.selectplayer.$invalid && detailForm.selectplayer.$touched">Please Enter Valid Player Type *</div>-->
+          </div>
+          <!-- SPORT TYPE END -->
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-dark" type="button" ng-click="blankExcel(form)" ng-disabled="detailForm.$invalid">Generate</button>
+  <button class="btn btn-warning" type="button" ng-click="$dismiss()">Cancel</button>
+</div>

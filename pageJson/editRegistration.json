@@ -1,0 +1,469 @@
+{
+    "title": "Edit School Registration",
+    "name": "User",
+    "jsonPage": "viewRegistration",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "Date of Registration",
+            "type": "date",
+            "tableRef": "createdAt",
+            "placeholder": "Enter year",
+            "id": "createdAt"
+        },
+        {
+            "name": "UTM Source",
+            "type": "text",
+            "tableRef": "utm_source",
+            "placeholder": "Enter utm source",
+            "id": "utm_source"
+        }, {
+            "name": "UTM Campaign",
+            "type": "text",
+            "tableRef": "utm_campaign",
+            "placeholder": "Enter utm campaign",
+            "id": "utm_campaign"
+        },
+        {
+            "name": "UTM Medium",
+            "type": "text",
+            "tableRef": "utm_medium",
+            "placeholder": "Enter utm Medium",
+            "id": "utm_medium"
+        },
+        {
+            "name": "School Name",
+            "type": "text",
+            "tableRef": "schoolName",
+            "placeholder": "Enter School Name",
+            "id": "name"
+        }, {
+            "name": "School Type",
+            "type": "tags",
+            "tableRef": "schoolType",
+            "placeholder": "Enter type",
+            "id": "type",
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Co-Educational", "Boys", "Girls"]
+        }, {
+            "name": "School Category",
+            "type": "tags",
+            "tableRef": "schoolCategory",
+            "placeholder": "Enter category",
+            "id": "category",
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Un-aided", "Government", "Aided"]
+        }, {
+            "name": "Affiliated Board",
+            "type": "tags",
+            "tableRef": "affiliatedBoard",
+            "placeholder": "Enter Board",
+            "id": "board",
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Central Board of Secondary Education (CBSE)", "Cambridge & IB", "International Baccalaureate (IB)", "Indian Certificate of Secondary Education (ICSE )",
+                "International General Certificate of Secondary Education (IGCSE)", "National Institute of Open Schooling (NIOS)",
+                "Secondary School Certificate (SSC)", "A Level", "Mumbai University", "Other"
+            ]
+        }, {
+            "name": "School Logo",
+            "type": "image",
+            "size": "250 x 250",
+            "view": true,
+            "disabled": true,
+            "tableRef": "schoolLogo",
+            "placeholder": "Upload Logo",
+            "id": "logo"
+        }, {
+            "name": "School Address",
+            "type": "text",
+            "tableRef": "schoolAddress",
+            "placeholder": "Enter Address",
+            "id": "address"
+        }, {
+            "name": "School Address Line2",
+            "type": "text",
+            "tableRef": "schoolAddressLine2",
+            "placeholder": "Enter Address line 2",
+            "id": "addressline2"
+        }, {
+            "name": "State",
+            "type": "tags",
+            "tableRef": "state",
+            "placeholder": "Enter State",
+            "id": "state",
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Maharastra", "Telengana"]
+        }, {
+            "name": "District",
+            "type": "tags",
+            "tableRef": "district",
+            "placeholder": "Enter district",
+            "id": "district",
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Mumbai City ", "Mumbai Suburban", "Thane", "Palghar", "Raigad"]
+        }, {
+            "name": "City",
+            "type": "tags",
+            "tableRef": "city",
+            "placeholder": "Enter city",
+            "id": "city",
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Kalyan-Dombivali", "Mira-Bhayandar", "Mumbai", "Navi Mumbai", "Panvel", "Thane", "Ulhasnagar", "Vasai-Virar", "Raigad", "Hyderabad"]
+        }, {
+            "name": "Locality",
+            "type": "text",
+            "tableRef": "locality",
+            "placeholder": "Enter locality",
+            "id": "locality"
+        }, {
+            "name": "pinCode",
+            "type": "text",
+            "tableRef": "pinCode",
+            "placeholder": "Enter pinCode",
+            "id": "pinCode"
+        }, {
+            "name": "Contact Person",
+            "type": "text",
+            "tableRef": "contactPerson",
+            "placeholder": "Enter contactPerson",
+            "id": "contactPerson"
+        }, {
+            "name": "Landline",
+            "type": "text",
+            "tableRef": "landline",
+            "placeholder": "Enter landline",
+            "id": "landline"
+        }, {
+            "name": "Mobile",
+            "type": "text",
+            "tableRef": "mobile",
+            "placeholder": "Enter mobile",
+            "id": "mobile"
+        }, {
+            "name": "Email",
+            "type": "text",
+            "tableRef": "email",
+            "placeholder": "Enter email",
+            "id": "email"
+        }, {
+            "name": "Website",
+            "type": "text",
+            "tableRef": "website",
+            "placeholder": "Enter website",
+            "id": "website"
+        }, {
+            "name": "Principal Name",
+            "type": "text",
+            "tableRef": "schoolPrincipalName",
+            "placeholder": "Enter Principal name",
+            "id": "principalName"
+        }, {
+            "name": "Principal landline",
+            "type": "text",
+            "tableRef": "schoolPrincipalLandline",
+            "placeholder": "Enter Principal Landline",
+            "id": "principalLandline"
+        }, {
+            "name": "Principal Mobile",
+            "type": "text",
+            "tableRef": "schoolPrincipalMobile",
+            "placeholder": "Enter Principal mobile",
+            "id": "principalMobile"
+        }, {
+            "name": "Principal email",
+            "type": "text",
+            "tableRef": "schoolPrincipalEmail",
+            "placeholder": "Enter Principal email",
+            "id": "principalEmail"
+        }, {
+            "name": "Sports Department",
+            "type": "box",
+            "tableRef": "sportsDepartment",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                    "name": "Name",
+                    "type": "text",
+                    "tableRef": "name",
+                    "tableValue": "name",
+                    "placeholder": "Enter name",
+                    "id": "name",
+                    "onView": true,
+                    "validation": ["", "trim", ""]
+                }, {
+                    "name": "Designation",
+                    "type": "text",
+                    "tableRef": "designation",
+                    "tableValue": "designation",
+                    "placeholder": "Enter Designation",
+                    "id": "designation",
+                    "onView": true,
+                    "validation": ["", "trim", ""]
+                }, {
+                    "name": "Email",
+                    "type": "text",
+                    "tableRef": "email",
+                    "tableValue": "email",
+                    "placeholder": "Enter Email",
+                    "id": "email",
+                    "onView": true,
+                    "validation": ["", "trim", ""]
+                },
+                {
+                    "name": "Mobile",
+                    "type": "text",
+                    "tableRef": "mobile",
+                    "tableValue": "mobile",
+                    "placeholder": "Enter Mobile",
+                    "id": "mobile",
+                    "onView": true,
+                    "validation": ["", "trim", ""]
+                }, {
+                    "name": "Photograph",
+                    "type": "image",
+                    "tableRef": "photograph",
+                    "tableValue": "photograph",
+                    "placeholder": "Enter Photograph",
+                    "id": "photograph",
+                    "onView": true,
+                    "validation": ["", "trim", ""]
+                }
+            ]
+        }, {
+            "name": "Individual Sports",
+            "type": "box",
+            "tableRef": "individualSports",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                "name": "Name",
+                "type": "tags",
+                "tableRef": "name",
+                "tableValue": "name",
+                "placeholder": "Enter Name",
+                "url": "",
+                "id": "name",
+                "dropDownField": "",
+                "dropDownType": "single",
+                "onView": true,
+                "dropDown": ["Athletics", "Carrom", "Chess"],
+                "validation": ["", "trim", ""]
+            }]
+        }, {
+            "name": "Team Sports",
+            "type": "box",
+            "tableRef": "teamSports",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                "name": "Name",
+                "type": "tags",
+                "tableRef": "name",
+                "tableValue": "name",
+                "placeholder": "Enter Name",
+                "url": "",
+                "id": "name",
+                "onView": true,
+                "validation": ["", "trim", ""],
+                "dropDownField": "",
+                "dropDownType": "single",
+                "dropDown": ["Football", "Basketball", "Handball", "Hockey", "Kabaddi", "Kho Kho", "Throwball", "Volleyball"]
+            }]
+        }, {
+            "name": "Racquet Sports",
+            "type": "box",
+            "tableRef": "racquetSports",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                "name": "Name",
+                "type": "tags",
+                "tableRef": "name",
+                "tableValue": "name",
+                "url": "",
+                "placeholder": "Enter Name",
+                "id": "name",
+                "onView": true,
+                "validation": ["", "trim", ""],
+                "dropDownField": "",
+                "dropDownType": "single",
+                "dropDown": ["Table Tennis", "addRacquetSports", "Tennis", "Squash", "Badminton"]
+            }]
+        },
+        {
+            "name": "Combat Sports",
+            "type": "box",
+            "tableRef": "combatSports",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                "name": "Name",
+                "type": "tags",
+                "tableRef": "name",
+                "tableValue": "name",
+                "url": "",
+                "placeholder": "Enter Name",
+                "id": "name",
+                "onView": true,
+                "validation": ["", "trim", ""],
+                "dropDownField": "",
+                "dropDownType": "single",
+                "dropDown": ["Boxing", "Fencing", "Judo", "Karate", "Sport Mma", "Taekwondo", "Wrestling"]
+            }]
+        },
+        {
+            "name": "Target Sports",
+            "type": "box",
+            "tableRef": "targetSports",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                "name": "Name",
+                "type": "tags",
+                "tableRef": "name",
+                "tableValue": "name",
+                "url": "",
+                "placeholder": "Enter Name",
+                "id": "name",
+                "onView": true,
+                "validation": ["", "trim", ""],
+                "dropDownField": "",
+                "dropDownType": "single",
+                "dropDown": ["Archery", "Shooting"]
+            }]
+        }, {
+            "name": "Aquatics Sports",
+            "type": "box",
+            "tableRef": "aquaticsSports",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                "name": "Name",
+                "type": "tags",
+                "tableRef": "name",
+                "tableValue": "name",
+                "url": "",
+                "placeholder": "Enter Name",
+                "id": "name",
+                "onView": true,
+                "validation": ["", "trim", ""],
+                "dropDownField": "",
+                "dropDownType": "single",
+                "dropDown": ["Swimming", "Water Polo"]
+            }]
+        },
+        {
+            "name": "Payment Mode",
+            "type": "tags",
+            "tableRef": "registrationFee",
+            "placeholder": "Enter Registration fee",
+            "url": "",
+            "id": "registration",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["cash", "online PAYU", "Sponsor"]
+        },
+        {
+            "name": "Payment Status",
+            "type": "tags",
+            "tableRef": "paymentStatus",
+            "placeholder": "Enter Status",
+            "url": "",
+            "id": "status",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Paid", "Pending"]
+        }, {
+            "name": "Transaction ID",
+            "type": "text",
+            "tableRef": "transactionID",
+            "placeholder": "Enter transactionID",
+            "id": "transactionID"
+        },
+        {
+            "name": "SFA ID",
+            "type": "text",
+            "tableRef": "sfaID",
+            "placeholder": "Enter SFA ID",
+            "id": "sfaID"
+        }, {
+            "name": "Verification Status",
+            "type": "tags",
+            "tableRef": "status",
+            "placeholder": "Enter Status",
+            "url": "",
+            "id": "status",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Pending", "Verified", "Rejected"]
+        }, {
+            "name": "Password",
+            "type": "text",
+            "tableRef": "password",
+            "placeholder": "Enter password",
+            "id": "password"
+        }, {
+            "name": "PAN No",
+            "type": "text",
+            "tableRef": "panNo",
+            "placeholder": "Enter panNo",
+            "id": "panNo"
+        }, {
+            "name": "GST No",
+            "type": "text",
+            "tableRef": "gstNo",
+            "placeholder": "Enter gstNo",
+            "id": "gstNo"
+        }, {
+            "name": "Remarks",
+            "type": "text",
+            "tableRef": "remarks",
+            "placeholder": "Enter Remark",
+            "id": "remarks"
+        }
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewRegistration"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewRegistration"
+            }
+        }
+    }],
+
+    "apiCall": {
+        "url": "Registration/generateSfaID",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Registration/getOne",
+        "params": "_id"
+    }
+
+}

@@ -1,0 +1,61 @@
+{
+    "title": "Create Sports List",
+    "name": "SportsList",
+    "jsonPage": "viewSportsList",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["SportsList"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Sports Type",
+        "type": "tags",
+        "tableRef": "SportsListSubCategory",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Enter SportsListSubCategory",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "SportsListSubCategory/search"
+    }, {
+        "name": "Draw Format",
+        "type": "tags",
+        "tableRef": "drawFormat",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Enter Draw Format",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "DrawFormat/search"
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSportsList",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSportsList"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSportsList"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "SportsList/save"
+    }
+}

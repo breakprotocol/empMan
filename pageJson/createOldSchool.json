@@ -1,0 +1,55 @@
+{
+    "title": "Create School/College",
+    "name": "OldSchool",
+    "jsonPage": "viewOldSchool",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["OldSchool"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter School Name",
+        "id": "name",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "SFA-ID",
+        "type": "text",
+        "tableRef": "sfaid",
+        "placeholder": "Enter Name",
+        "id": "sfaid",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Type",
+        "type": "text",
+        "tableRef": "institutionType",
+        "placeholder": "Enter Name",
+        "id": "institutionType",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitOldSchool",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewOldSchool"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewOldSchool"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "School/save"
+    }
+}

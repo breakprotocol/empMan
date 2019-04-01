@@ -1,0 +1,39 @@
+{
+    "title": "Create Sports Type",
+    "name": "SportsListCategory",
+    "jsonPage": "viewSportsListCategory",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["SportsListCategory"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSportsListCategory",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSportsListCategory"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSportsListCategory"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "SportsListCategory/save"
+    }
+}

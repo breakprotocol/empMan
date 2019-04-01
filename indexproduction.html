@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head ng-controller="headerctrl">
+    <meta charset="utf-8">
+    <!-- <base href="localhost/"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title ng-bind="'Boxxit | '+template.title">Backend</title>
+
+    <!-- Smart App Banner -->
+    <!-- <meta name="apple-itunes-app" content="app-id=310633997">
+    <meta name="google-play-app" content="app-id=com.whatsapp">
+    <link rel="apple-touch-icon" href="http://www.tivix.com/uploads/blog_pics/square.png">
+    <link rel="android-touch-icon" href="http://www.tivix.com/uploads/blog_pics/square.png" /> -->
+
+    <!-- SEO -->
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Facebook -->
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content=""/>
+    <meta property="og:description" content=""/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="img/fb-banner.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="img/tw-banner.jpg">
+
+    <!-- <link rel="shortcut icon" href="img/favicon.ico" /> -->
+    <link rel="stylesheet" type="text/css" href="w.css" />
+    <script>
+      var isproduction=true;
+    </script>
+    <script src="w.js"></script>
+
+    <!--[if IE]>
+        <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+    <div class="repeated-item" ui-view></div>
+
+</body>
+
+</html>

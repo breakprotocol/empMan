@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">EDIT TEAM PLAYER</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form name="editForm" role="form" action="">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="playername" ng-model="matchData.name" class="form-control" placeholder="Enter Name" required>
+          <span class="label pull-right label-danger" ng-if="editForm.playername.$invalid && editForm.playername.$touched">Enter Name</span>
+          <!-- <div class="error-msg">Please Enter Name*</div> -->
+        </div>
+        <div class="form-group">
+          <label>Sfa ID*</label>
+          <input type="text" name="playersfaid" ng-model="matchData.sfaId" class="form-control" placeholder="Enter Name Sfa Id" required>
+          <span class="label pull-right label-danger" ng-if="editForm.playersfaid.$invalid && editForm.playersfaid.$touched">Enter Name Sfa Id</span>
+          <!-- <div class="error-msg">Please Enter Name*</div> -->
+        </div>
+        <div class="edit-team-player-holder-Goal">
+          <label for=""> Goals</label>
+          <div class="row">
+            <div class="col-md-3" ng-repeat="goal in data track by $index">
+              <label for=""> Goal {{$index+1}}</label>
+              <div class="input-group">
+                <span class="input-group-addon">Time</span>
+                <input type="number" class="form-control" placeholder="999" aria-label="Product name">
+                <span class="input-group-addon">Min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+  <button class="btn btn-warning" type="button" ng-click="$dismiss()">Cancel</button>
+</div>

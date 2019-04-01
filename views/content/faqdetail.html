@@ -1,0 +1,505 @@
+<div class="heading-sec">
+    <div class="row">
+        <div class="col-md-4 column">
+            <div class="heading-profile">
+                <h2>{{title}} Faq</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Bar Chart -->
+<div class="panel-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget">
+                <div class="form-elements-sec">
+                    <form name="detailForm" role="form" class="sec">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Order*</label>
+                                    <input type="number" name="order" ng-model="formData.order" class="form-control" placeholder="Enter Order" required>
+                                    <div class="error-msg" ng-if="detailForm.order.$invalid && detailForm.rulesname.$touched">Please Enter Valid Name *</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Name*</label>
+                                    <input type="text" name="rulesname" ng-model="formData.name" class="form-control" placeholder="Enter Name" required>
+                                    <div class="error-msg" ng-if="detailForm.rulesname.$invalid && detailForm.rulesname.$touched">Please Enter Valid Name *</div>
+                                </div>
+                                <!--ageGroupTable: Schema.Types.Mixed,
+    eligibilityContent: String,
+    eligibilityTable: Schema.Types.Mixed,-->
+                                <div class="form-group tinymce">
+                                    <label>Related Content One*</label>
+                                    <text-angular ng-model="formData.relatedContentOne" name="relatedContentOne" required></text-angular>
+                                    <div class="error-msg" ng-if="detailForm.relatedContentOne.$invalid && detailForm.relatedContentOne.$touched">Please enter valid Text</div>
+                                </div>
+                                <div class="clearfix"></div>
+
+
+                                <div class="clearfix"></div>
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 1</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent1');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent1">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+
+                                                        </td>
+                                                        <td style="width:40%">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" ng-model="content.date">
+                                                        </td>
+                                                        <td>
+                                                            <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),1);" value="Delete">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 2</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent2');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent2">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" ng-model="content.date">
+                                                        </td>
+                                                        <td>
+                                                            <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),2);" value="Delete">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="clearfix"></div>
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 3</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent3');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent3">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" ng-model="content.date">
+                                                        </td>
+                                                        <td>
+                                                            <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),3);" value="Delete">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="clearfix"></div>
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 4</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent4');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent4">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" ng-model="content.date">
+                                                        </td>
+                                                        <td>
+                                                            <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),4);" value="Delete">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <div class="clearfix"></div>
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 5</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent5');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent5">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" ng-model="content.date">
+                                                        </td>
+                                                        <td>
+                                                            <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),5);" value="Delete">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 6</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent6');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent6">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" ng-model="content.date">
+                                                        </td>
+                                                        <td>
+                                                            <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),6);" value="Delete">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 7</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent7');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent7">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" class="form-control" ng-model="content.date">
+                                                            </td>
+                                                            <td>
+                                                                <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),7);" value="Delete">
+                                                            </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 8</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent8');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent8">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" ng-model="content.heading">
+
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" class="form-control" ng-model="content.date">
+                                                            </td>
+                                                            <td>
+                                                                <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),8);" value="Delete">
+                                                            </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 9</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent9');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent9">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" ng-model="content.date">
+                                                        </td>
+                                                        <td>
+                                                            <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),9);" value="Delete">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="widget">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Table Content 10</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a ng-click="addCont(formData,'tableContent10');" class="btn btn-success pull-right">Add Content</a>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Heading</td>
+                                                        <td>Age Group</td>
+                                                        <td>Cut Off Date</td>
+                                                        <td>Operation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="content in formData.tableContent10">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.heading">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" ng-model="content.agegroup">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" ng-model="content.date">
+                                                        </td>
+                                                        <td>
+                                                            <input class="btn btn-danger" type="button" ng-click="deleteFunc(formData.eligibilityTable.indexOf(content),10);" value="Delete">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-group tinymce">
+                                    <label>Related Content Two*</label>
+                                    <text-angular ng-model="formData.relatedContentTwo" name="relatedContentTwo" required></text-angular>
+                                    <div class="error-msg" ng-if="detailForm.relatedContentTwo.$invalid && detailForm.relatedContentTwo.$touched">Please enter valid Text</div>
+                                </div>
+
+                                <div class="text-center mt20 odd-even-button">
+                                    <button class="btn btn-default" type="submit" ng-click="saveData(formData)">Save</button>
+                                    <button class="btn btn-default" ng-click="onCancel('faq')">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

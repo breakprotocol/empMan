@@ -1,0 +1,46 @@
+{
+    "title": "Rules and Regulation",
+    "description": "List of Rules",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editRules",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Rules",
+        "content": "Are you sure you want to delete Rules?",
+        "api": "Rules/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createRules"
+    }],
+
+    "apiCall": {
+        "url": "Rules/search",
+        "params": "_id"
+    }
+}

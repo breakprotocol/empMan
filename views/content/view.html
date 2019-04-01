@@ -1,0 +1,179 @@
+<!-- <div id="progressBar">
+	<div class="loader"></div>
+</div> -->
+<div ng-controller="ViewCtrl">
+    <div class="heading-sec">
+        <div class="row">
+            <div class="col-md-4 column">
+                <div class="heading-profile">
+                    <h2 ng-bind="json.json.title"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar Chart -->
+    <div class=" panel-content ">
+        <div class="row ">
+            <div class="col-md-12 ">
+                <div class="widget ">
+                    <div class="table-area ">
+                        <div class="widget-title ">
+                            <div class="pull-right">
+                                <form class="search-form mr-form" ng-if="json.json.title=='School Registration'">
+                                    <input type="text " touppercase ng-change="searchInSchool(search) " placeholder="Search Here...
+                             " ng-model="search" />
+                                </form>
+                                <form class="search-form mr-form" ng-if="json.json.title=='Athlete Registration'">
+                                    <input type="text " touppercase ng-change="searchInAthlete(search)" placeholder="Search Here...
+                             " ng-model="search" />
+                                </form>
+                                <form class="search-form mr-form" ng-if="json.json.title=='Old School'">
+                                    <input type="text " ng-change="searchInOldSchool(search) " placeholder="Search Here...
+                             " ng-model="search" />
+                                </form>
+                                <a ng-repeat="btn in json.json.button " class="btn " ng-class="btn.class " ng-click="json.eventAction(btn)">{{btn.name}}</a>
+                            </div>
+                            <h3>{{json.json.description}} <span class="tableTotal ">(Total : {{totalItems}}) </span></h3>
+                            <!--<div class="row">
+                                <div class="col-md-6">
+                                    <div ng-if="json.json.title=='School Registration'" class="form-goup">
+                                        <div class="mtp5">
+                            <div class="dropdown">
+                                <button class="btn default btn-md dropdown-toggle mbt5" type="button" data-toggle="dropdown">Filter
+                                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu cur">
+                                    <li><input type="radio" ng-model="formData.type" value="Date"> Date</li>
+                                    <li><input type="radio" ng-model="formData.type" value="SFA-ID">SFA-ID</li>
+                                    <li><input type="radio" ng-model="formData.type" value="School Name"> School Name
+                                    </li>
+                                    <li><input type="radio" ng-model="formData.type" value="Payment Mode">Payment Mode
+                                    </li>
+                                    <li><input type="radio" ng-model="formData.type" value="Payment Status">Payment Status
+                                    </li>
+                                    <li><input type="radio" ng-model="formData.type" value="Verified Status">Verified Status
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row" ng-if="formData.type == 'Date'">
+                                <div class="col-md-4">
+                                    <span>From:</span>
+                                    <input-date ng-model="formData.startDate" placeholder="From"></input-date>
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <span>To:</span>
+                                    <input-date ng-model="formData.endDate" placeholder="To"></input-date>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-sm mrtp" type="button" ng-click="filterSchool(formData)">Go</button>
+                                </div>
+                            </div>
+                            <div class="row" ng-if="formData.type != 'Date' && formData.type != ''">
+                                <div class="col-md-6 mtp5">
+                                    <input type="text" ng-model="formData.input" class="form-control">
+                                </div>
+                                <div class="col-md-4 mtp5">
+                                    <button class="btn btn-sm" type="button" ng-click="filterSchool(formData)">Go</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="json.json.title=='Athlete Registration'" class="form-goup">
+                        <div class="mtp5">
+                            <div class="dropdown">
+                                <button class="btn default btn-md dropdown-toggle mbt5" type="button" data-toggle="dropdown">Filter
+                                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu cur">
+                                    <li><input type="radio" ng-model="formData.type" value="Date"> Date</li>
+                                    <li><input type="radio" ng-model="formData.type" value="SFA-ID">SFA-ID</li>
+                                    <li><input type="radio" ng-model="formData.type" value="School Name"> School Name
+                                    </li>
+                                    <li><input type="radio" ng-model="formData.type" value="Athlete Name"> Athlete Name
+                                    </li>
+                                    <li><input type="radio" ng-model="formData.type" value="Payment Mode">Payment Mode
+                                    </li>
+                                    <li><input type="radio" ng-model="formData.type" value="Payment Status">Payment Status
+                                    </li>
+                                    <li><input type="radio" ng-model="formData.type" value="Verified Status">Verified Status
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="row" ng-if="formData.type == 'Date'">
+                                <div class="col-md-4">
+                                    <span>From:</span>
+                                    <input-date ng-model="formData.startDate" placeholder="From"></input-date>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>To:</span>
+                                    <input-date ng-model="formData.endDate" placeholder="To"></input-date>
+                                </div>
+                                <div class="col-md-4 ">
+                                    <button class="btn btn-sm mrtp" type="button" ng-click="filterAthlete(formData)">Go</button>
+                                </div>
+                            </div>
+                            <div class="row" ng-if="formData.type != 'Date' && formData.type != ''">
+                                <div class="col-md-6 mtp5">
+                                    <input type="text" ng-model="formData.input" class="form-control">
+                                </div>
+                                <div class="col-md-4 mtp5">
+                                    <button class="btn btn-sm" type="button" ng-click="filterAthlete(formData)">Go</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="pull-right">
+                        <form class="search-form mr-form ">
+                            <input type="text " ng-change="filterSchool(true) " placeholder="Search Here...
+                             " ng-model="search.keyword" />
+                        </form>
+                        <a ng-repeat="btn in json.json.button " class="btn " ng-class="btn.class " ng-click="json.eventAction(btn)">{{btn.name}}</a>
+                    </div>
+                </div>
+            </div>-->
+
+                        </div>
+                        <div class="table-responsive " ng-show="totalItems>0 ">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th ng-repeat="field in json.json.fields">
+                                            {{field.name}}
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in items">
+                                        <td>{{($index + 1)+((currentPage-1)*maxRow)}}</td>
+                                        <td ng-repeat="field in json.json.fields">
+                                            <view-field type="field" value="item"></view-field>
+                                        </td>
+                                        <td ng-repeat="but in json.json.action">
+                                            <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">
+                                                <i class="fa" ng-class="but.icon"></i>{{but.name}}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tableData " ng-show="totalItems===0 ">
+                            <h5>No data found</h5>
+                        </div>
+                        <div class="tableData " ng-show="totalItems===undefined ">
+                            <h5>Loading Data</h5>
+                        </div>
+                        <ul ng-if="totalItems " ng-change="changePage(currentPage); " uib-pagination total-items="totalItems
+                                            " items-per-page="maxRow " ng-model="currentPage " max-size="template.pageMax "
+                            class="pagination-sm
+                                            " boundary-links="true " force-ellipses="true "></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="heading-sec">
+  <div class="row">
+    <div class="col-md-4 column">
+      <div class="heading-profile">
+        <h2>{{title}} Products</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Top Bar Chart -->
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="form-elements-sec">
+          <form name="detailForm" role="form" class="sec">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+
+                  <label>Name*</label>
+                  <input type="text" ng-model="formData.name" class="form-control" placeholder="Enter Name" required>
+                  <div class="error-msg" ng-if="detailForm.agename.$invalid && detailForm.agename.$touched">Please Enter Valid Name *</div>
+                  
+                  <label>Category Name*</label>
+                  <ui-select name="selectsportslist" id="selectsportslist" theme="bootstrap" ng-model="category.selectedCategory" ng-change="searchSubCategories($select.selected._id)"
+                    required>
+                    <ui-select-match placeholder="Select Category" allow-clear="true">
+                      {{$select.selected.name}}
+                    </ui-select-match>
+                    <ui-select-choices refresh.delay="0" repeat="{'id':item._id,'name':item.name} as item in categories | filter:$select.search track by $index">
+                      <span ng-bind-html="item.name"></span>
+                    </ui-select-choices>
+                  </ui-select>
+
+                  <label>Sub Category*</label>
+                  <ui-select name="selectsportslist" id="selectsportslist" theme="bootstrap" ng-model="subCategory.selectedSubCategory" ng-change="searchSportList($select.selected._id)"
+                    required>
+                    <ui-select-match placeholder="Select Sub Category" allow-clear="true">
+                      {{$select.selected.name}}
+                    </ui-select-match>
+                    <ui-select-choices refresh.delay="0" repeat="{'id':item._id,'name':item.name} as item in subCategories | filter:$select.search track by $index">
+                      <span ng-bind-html="item.name"></span>
+                    </ui-select-choices>
+                  </ui-select>
+
+                  <label>Image*</label>
+                  <div class="" style="width:50px;height:50px;margin:0;">
+                    <img ng-src="{{domain}}/uploads/{{formData.link}}" alt="" class="img-responsive">
+                  </div>
+                  
+                  <upload-image no-view ng-model="formData.link"></upload-image>
+                  <label>Priority*</label>
+                  <input type="text" ng-model="formData.priority" class="form-control" placeholder="Enter Name" required>
+                  <!-- <input type="text" ng-model="formData.status" class="form-control" placeholder="Enter Name" required> -->
+                </div>
+                <div class="text-center mt20 odd-even-button">
+                  <button class="btn btn-default" type="submit" ng-click="saveData(formData)">Save</button>
+                  <button class="btn btn-default" ng-click="onCancel('products')">Cancel</button>
+                </div>
+              </div>
+            </div>
+            <!--<div class="text-center mt20 odd-even-button">
+                              <button class="btn btn-default" type="submit" ng-click="saveData(data)">Save</button>
+                              <button class="btn btn-default" ng-click="onCancel(json.json.action[1].stateName)">Cancel</button>
+                          </div>-->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

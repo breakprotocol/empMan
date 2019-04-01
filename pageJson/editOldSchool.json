@@ -1,0 +1,65 @@
+{
+    "title": "Edit Old School",
+    "name": "User",
+    "jsonPage": "viewOldSchool",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter School Name",
+        "id": "name"
+    }, {
+        "name": "SFA-ID",
+        "type": "text",
+        "tableRef": "sfaid",
+        "placeholder": "Enter Name",
+        "id": "sfaid",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Type",
+        "type": "text",
+        "tableRef": "institutionType",
+        "placeholder": "Enter Name",
+        "id": "institutionType",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Screen Name",
+        "type": "text",
+        "tableRef": "screenName",
+        "placeholder": "Enter School Screen Name",
+        "id": "name"
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewOldSchool"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewOldSchool"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "School/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "School/getOne",
+        "params": "_id"
+    }
+
+}

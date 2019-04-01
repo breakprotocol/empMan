@@ -1,0 +1,99 @@
+{
+    "title": "Edit Sports List",
+    "name": "SportsList",
+    "jsonPage": "viewSportsList",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Sports Type",
+        "type": "tags",
+        "tableRef": "SportsListCategory",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Enter SportsListCategory",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "SportsListCategory/search"
+    }, {
+        "name": "isTeam",
+        "type": "tags",
+        "tableRef": "isTeam",
+        "placeholder": "Select isTeam",
+        "id": "isTeam",
+        "validation": ["", "trim", ""],
+        "onView": true,
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["True", "False"]
+    }, {
+        "name": "Filter",
+        "type": "tags",
+        "tableRef": "filter",
+        "placeholder": "Select filter",
+        "id": "filter",
+        "validation": ["", "trim", ""],
+        "onView": true,
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "multiple",
+        "dropDown": ["Gender", "AgeGroup", "Weight"]
+    }, {
+        "name": "RulesAndRegulation",
+        "type": "tags",
+        "tableRef": "rules",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Enter rules",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Rules/search"
+    }, {
+        "name": "MaxTeam",
+        "type": "number",
+        "tableRef": "maxTeam",
+        "placeholder": "Enter maxTeam",
+        "id": "maxTeam",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSportsList",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSportsList"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSportsList"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "SportsList/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "SportsList/getOne",
+        "params": "_id"
+    }
+
+}

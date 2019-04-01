@@ -1,0 +1,45 @@
+{
+    "title": "Edit Sports List",
+    "name": "SportsListCategory",
+    "jsonPage": "viewSportsListCategory",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSportsListCategory",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSportsListCategory"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSportsListCategory"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "SportsListCategory/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "SportsListCategory/getOne",
+        "params": "_id"
+    }
+
+}

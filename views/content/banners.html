@@ -1,0 +1,60 @@
+<!-- TABLE  -->
+<div class=" panel-content ">
+    <div class="row ">
+        <div class="col-md-12 ">
+            <div class="widget ">
+                <div class="table-area ">
+                    <div class="widget-title ">
+                        <h3>List of Banners
+                            <span class="tableTotal">(Total : {{items.length}}) </span>
+                        </h3>
+                    </div>
+                    <div class="table-responsive ">
+                        <!--<div class="table-responsive " ng-show="totalItems>0 ">-->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>
+                                        Image
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--<tr ng-repeat="item in items">-->
+                                <tr ng-repeat="item in items track by $index">
+                                    <!--<tr>-->
+                                    <td>{{$index + 1}}</td>
+                                    <!-- <td>{{item.link}}</td> -->
+                                    <td>
+                                        <div class="" style="width:50px;height:50px;margin:0 auto;float: left">
+                                            <img ng-src="{{domain}}/uploads/banners/{{item.link}}" alt="" class="img-responsive">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger" ng-click="confDel(item._id)">
+                                            <i class="fa fa-trash"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="banner-img">
+                        <upload-image no-view ng-model="formData.link" folder="banner" ng-callback="testBanner()"></upload-image>
+                    </div>
+
+                    <div class="tableData " ng-show="items.length===0 ">
+                        <h5>No data found {{formData.link}}</h5>
+                    </div>
+                    <div class="tableData " ng-show="items===undefined ">
+                        <h5>Loading Data</h5>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- TABLE  END -->

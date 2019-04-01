@@ -1,0 +1,109 @@
+<div class="match-nomatch-modal">
+  <!-- <div class="modal-close pointer" ng-click="$dismiss()">
+        <span><i class="fa fa-times"></i></span>
+    </div> -->
+  <div class="export-modal">
+    <form name="detailForm" role="form" class="sec">
+      <div class="col-md-12 drop-1">
+        <label>Gender</label>
+        <select name="selectgender" class="form-control" ng-model="form.gender" placeholder="Enter Gender" required>
+                   <option style="display:none" >Enter Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="both">Male&Female</option>
+        </select>
+        <span class="label label-danger pull-right" ng-if="detailForm.selectgender.$invalid && detailForm.selectgender.$touched">Please Enter Gender*</span>
+      </div>
+
+      <div class="col-md-12 drop-1">
+        <label>Sports List</label>
+        <ui-select name="selectsportslist" id="selectsportslist" theme="bootstrap" ng-model="form.sportslist" ng-change="searchSportList($select.selected._id)"
+          required>
+          <ui-select-match placeholder="Enter Sports List" allow-clear="true">
+            {{$select.selected.name}}
+          </ui-select-match>
+          <ui-select-choices refresh.delay="0" repeat="item in sportitems | filter:$select.search" refresh="getAllSportList($select.search)">
+            <span ng-bind-html="item.name"></span>
+          </ui-select-choices>
+        </ui-select>
+        <span class="label label-danger pull-right" ng-if="detailForm.selectsportslist.$invalid && detailForm.selectsportslist.$touched">Please Enter Sport List *</span>
+      </div>
+
+      <div class="col-md-12 drop-1">
+        <label>Age Group</label>
+        <ui-select name="selectSchoolName" id="selectSchoolName" theme="bootstrap" ng-model="form.ageGroup" ng-change="searchAge($select.selected._id)"
+          required>
+          <ui-select-match placeholder="Enter Age Group" allow-clear="true">
+            {{$select.selected.name}}
+          </ui-select-match>
+          <ui-select-choices refresh.delay="0" repeat="item in ageitems | filter:$select.search" refresh="getAllAge($select.search)">
+            <span ng-bind-html="item.name"></span>
+          </ui-select-choices>
+        </ui-select>
+        <span class="label label-danger pull-right" ng-if="detailForm.selectSchoolName.$invalid && detailForm.selectSchoolName.$touched">Please Enter Age Group *</span>
+      </div>
+      <div class="col-md-12 drop-1">
+        <label>Weight</label>
+        <ui-select name="selectweight" id="selectweight" theme="bootstrap" ng-model="form.weight" ng-change="searchWeight($select.selected._id)">
+          <ui-select-match placeholder="Enter Weight" allow-clear="true">
+            {{$select.selected.name}}
+          </ui-select-match>
+          <ui-select-choices refresh.delay="0" repeat="item in weightitems | filter:$select.search" refresh="getAllWeight($select.search)">
+            <span ng-bind-html="item.name"></span>
+          </ui-select-choices>
+        </ui-select>
+        <div class="error-msg" ng-if="detailForm.selectweight.$invalid && detailForm.selectweight.$touched">Please Enter Valid Weight *</div>
+      </div>
+
+      <div class="col-md-12 drop-1">
+        <label>Draw Formats</label>
+        <select class="form-control" name="drawformat" ng-model="form.resultType" required>
+          <option  value="knockout">Knockout</option>
+          <option  value="heat">Heat</option>
+          <option  value="direct-final">Direct Final</option>
+          <option  value="league-cum-knockout">League cum Knockout</option>
+          <option  value="qualifying-knockout">Qualifying Knockout</option>
+          <option  value="qualifying-round">Qualifying Round</option>
+          <option  value="swiss-league">Swiss League</option>
+        </select>
+        <span class="label label-danger pull-right" ng-if="detailForm.drawformat.$invalid && detailForm.drawformat.$touched">Please Enter Draw Format *</span>
+      </div>
+      <div class="col-md-12 drop-2">
+        <label>Sport Type</label>
+        <select class="form-control" name="sporttype" ng-model="form.playerType" required>
+          <option  value="team">Team</option>
+          <option  value="individual">Individual</option>
+        </select>
+        <span class="label label-danger pull-right" ng-if="detailForm.sporttype.$invalid && detailForm.sporttype.$touched">Please Enter Draw Format *</span>
+      </div>
+      <div class="col-md-12 drop-1">
+        <label>Plyer Specific Export?</label>
+        <select class="form-control" name="playerspecific" ng-model="form.playerSpecific" required>
+          <option  value="yes">YES</option>
+          <option  value="no">NO</option>
+        </select>
+        <span class="label label-danger pull-right" ng-if="detailForm.playerspecific.$invalid && detailForm.playerspecific.$touched">Please Enter Player Specific *</span>
+      </div>
+
+      <div class="match-nomatch-buttons">
+        <div class="">
+          <div class="col-md-4">
+            <button class="btn btn-green-outline btn-scoring" ng-click="$dismiss()">back</button>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-green-outline btn-scoring" ng-click="viewTable(form)">Search</button>
+          </div>
+
+          <div class="col-md-4">
+            <button class="btn btn-success form-control" ng-click="generateExcel(form)" ng-disabled="detailForm.$invalid">Genrate Excel</button>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+
+</div>
+</div>

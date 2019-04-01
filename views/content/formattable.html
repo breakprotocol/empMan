@@ -1,0 +1,434 @@
+<div class="heading-sec">
+  <div class="row">
+    <div class="col-md-4 column">
+      <div class="heading-profile">
+        <h5 class="text-uppercase">{{drawType}} TABLE</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="table-area ">
+          <div class="widget-title ">
+            <div class="format-table-head">
+              <div class="row">
+                <div class="col-md-8">
+                  <span class="btn btn-success" ng-click="remove()">
+                              Back
+                  </span>
+                </div>
+                <div class="col-md-4">
+                  <form class="search-form mr-form">
+                    <input type="text" class="form-control" ng-change="searchInTable(search)" placeholder="Search Here...
+                                                   " ng-model="search" />
+                  </form>
+                </div>
+              </div>
+
+            </div>
+            <!-- KNOCKOUT && LEAGUE KNOCKOUT HOLDER -->
+            <div class="knockout-league-holder" ng-if="drawType==='Knockout'">
+              <div class="table-responsive">
+                <!--<div class="table-responsive " ng-show="totalItems>0 ">-->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>
+                        Match Id
+                      </th>
+                      <th>
+                        Round
+                      </th>
+                      <th>
+                        Player 1
+                      </th>
+                      <th>
+                        Player 2
+                      </th>
+                      <th>
+                        Score
+                      </th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr ng-repeat="item in items">-->
+                    <!-- <tr ng-repeat="item in items"> -->
+                    <tr ng-repeat="item in result|filter:item.matchId">
+                      <!--<tr>-->
+                      <td>{{($index + 1)+((form.page-1)*maxRow)}}</td>
+                      <!--<td>{{($index + 1)}}</td>-->
+                      <td>{{item.matchId}}</td>
+                      <td>{{item.round}}
+                        <!-- <pre>{{item.sport.sportslist.sportsListSubCategory.sportsListCategory.name}}</pre>
+                                <pre>{{item.matchId}}</pre>
+                                <pre>{{item.sport.sportslist.sportsListSubCategory.isTeam}}</pre> -->
+                      </td>
+                      <td>
+                        {{item.player1}}
+                      </td>
+                      <td>
+                        {{item.player2}}
+                      </td>
+                      <td>
+                        {{item.set}}
+                        <!-- <span>{{item.resultsCombat.players[0].sets[0].point}}</span> <span>-</span> <span></span> -->
+                      </td>
+                      <td>
+                        <a class="btn btn-primary" target="_blank" ng-click="specificFormat(item)">
+                                    <i class="fa fa-pencil"></i> Edit
+                                  </a>
+                        <a class="btn btn-danger" ng-click="confDel(item._id)">
+                                    <i class="fa fa-trash"></i> Delete
+                                  </a>
+                      </td>
+                      <!--<td ng-repeat="but in json.json.action">
+                                                      <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">
+                                                          <i class="fa" ng-class="but.icon"></i>{{but.name}}
+                                                      </a>
+                                                  </td>-->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- KNOCKOUT && LEAGUE KNOCKOUT HOLDER END -->
+
+            <!-- HEATS HOLDER -->
+            <div class="heats-holder" ng-if="drawType==='Heats'">
+              <div class="table-responsive">
+                <!--<div class="table-responsive " ng-show="totalItems>0 ">-->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>
+                        Match Id
+                      </th>
+                      <th>
+                        Round
+                      </th>
+                      <th>
+                        Heat
+                      </th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr ng-repeat="item in items">-->
+                    <!-- <tr ng-repeat="item in items"> -->
+                    <tr ng-repeat="item in items|filter:item.matchId">
+                      <!--<tr>-->
+                      <td>{{($index + 1)+((form.page-1)*maxRow)}}</td>
+                      <!--<td>{{($index + 1)}}</td>-->
+                      <td>{{item.matchId}}</td>
+                      <td>{{item.round}}
+                        <!-- <pre>{{item.sport.sportslist.sportsListSubCategory.sportsListCategory.name}}</pre>
+                                    <pre>{{item.matchId}}</pre>
+                                    <pre>{{item.sport.sportslist.sportsListSubCategory.isTeam}}</pre> -->
+                      </td>
+                      <td>
+                        {{item.heatNo}}
+                      </td>
+                      <td>
+                        <a class="btn btn-primary" target="_blank" ng-click="specificFormat(item)">
+                                        <i class="fa fa-pencil"></i> Edit
+                                      </a>
+                        <a class="btn btn-danger" ng-click="confDel(item._id)">
+                                        <i class="fa fa-trash"></i> Delete
+                                      </a>
+                      </td>
+                      <!--<td ng-repeat="but in json.json.action">
+                                                          <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">
+                                                              <i class="fa" ng-class="but.icon"></i>{{but.name}}
+                                                          </a>
+                                                      </td>-->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- HEATS HOLDER END -->
+
+            <!-- SWISS LEAGUE HOLDER -->
+            <div class="heats-holder" ng-if="drawType==='Swiss League'">
+              <div class="table-responsive">
+                <!--<div class="table-responsive " ng-show="totalItems>0 ">-->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>
+                        Match Id
+                      </th>
+                      <th>
+                        Round
+                      </th>
+                      <th>
+                        PLAYER 1
+                      </th>
+                      <th>
+                        PLAYER 2
+                      </th>
+                      <th>
+                        SCORE
+                      </th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr ng-repeat="item in items">-->
+                    <!-- <tr ng-repeat="item in items"> -->
+                    <tr ng-repeat="item in items|filter:item.matchId">
+                      <!--<tr>-->
+                      <td>{{($index + 1)+((form.page-1)*maxRow)}}</td>
+                      <!--<td>{{($index + 1)}}</td>-->
+                      <td>{{item.matchId}}</td>
+                      <td>{{item.round}}
+                        <!-- <pre>{{item.sport.sportslist.sportsListSubCategory.sportsListCategory.name}}</pre>
+                                                  <pre>{{item.matchId}}</pre>
+                                                  <pre>{{item.sport.sportslist.sportsListSubCategory.isTeam}}</pre> -->
+                      </td>
+                      <td>
+                        {{item.resultSwiss.players[0].fullName}}
+                      </td>
+                      <td>
+                        {{item.resultSwiss.players[1].fullName}}
+                      </td>
+                      <td>
+                        <span>{{item.resultSwiss.players[0].score}}</span>- <span>{{item.resultSwiss.players[1].score}}</span>
+                      </td>
+                      <td>
+                        <a class="btn btn-primary" target="_blank" ng-click="specificFormat(item)">
+                                                      <i class="fa fa-pencil"></i> Edit
+                                                    </a>
+                        <a class="btn btn-danger" ng-click="confDel(item._id)">
+                                                      <i class="fa fa-trash"></i> Delete
+                                                    </a>
+                      </td>
+                      <!--<td ng-repeat="but in json.json.action">
+                                                                        <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">
+                                                                            <i class="fa" ng-class="but.icon"></i>{{but.name}}
+                                                                        </a>
+                                                                    </td>-->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- SWISS LEAGUE END -->
+
+            <!-- QUALIFYING ROUND -->
+            <div class="qualifying-holder" ng-if="drawType==='Qualifying Round'">
+              <div class="table-responsive">
+                <!--<div class="table-responsive " ng-show="totalItems>0 ">-->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>
+                        Match Id
+                      </th>
+                      <th>
+                        Round
+                      </th>
+                      <th>
+                        Player1
+                      </th>
+                      <th>
+                        Score
+                      </th>
+                      <th>
+                        Result
+                      </th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr ng-repeat="item in items">-->
+                    <!-- <tr ng-repeat="item in items"> -->
+                    <tr ng-repeat="item in result|filter:item.matchId">
+                      <!--<tr>-->
+                      <td>{{($index + 1)+((form.page-1)*maxRow)}}</td>
+                      <!--<td>{{($index + 1)}}</td>-->
+                      <td>{{item.matchId}}</td>
+                      <td>{{item.round}}
+                        <!-- <pre>{{item.sport.sportslist.sportsListSubCategory.sportsListCategory.name}}</pre>
+                                        <pre>{{item.matchId}}</pre>
+                                        <pre>{{item.sport.sportslist.sportsListSubCategory.isTeam}}</pre> -->
+                      </td>
+                      <td>
+                        {{item.player1}}
+                      </td>
+                      <td>{{item.set}}</td>
+                      <td>{{item.result}}</td>
+                      <td>
+                        <a class="btn btn-primary" target="_blank" ng-click="specificFormat(item)">
+                                            <i class="fa fa-pencil"></i> Edit
+                                          </a>
+                        <a class="btn btn-danger" ng-click="confDel(item._id)">
+                                            <i class="fa fa-trash"></i> Delete
+                                          </a>
+                      </td>
+                      <!--<td ng-repeat="but in json.json.action">
+                                                              <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">
+                                                                  <i class="fa" ng-class="but.icon"></i>{{but.name}}
+                                                              </a>
+                                                          </td>-->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- QUALIFYING ROUND END -->
+
+            <!-- QUALIFYING KNOCKOUT -->
+            <div class="qualifying-knockout-holder" ng-if="drawType==='Qualifying Knockout'">
+              <div class="table-responsive">
+                <!--<div class="table-responsive " ng-show="totalItems>0 ">-->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>
+                        Match Id
+                      </th>
+                      <th>
+                        Round
+                      </th>
+                      <th>
+                        Player1
+                      </th>
+                      <th>
+                        Player 2
+                      </th>
+                      <th>
+                        Score
+                      </th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr ng-repeat="item in items">-->
+                    <!-- <tr ng-repeat="item in items"> -->
+                    <tr ng-repeat="item in result|filter:item.matchId">
+                      <!--<tr>-->
+                      <td>{{($index + 1)+((form.page-1)*maxRow)}}</td>
+                      <!--<td>{{($index + 1)}}</td>-->
+                      <td>{{item.matchId}}</td>
+                      <td>{{item.round}}
+                        <!-- <pre>{{item.sport.sportslist.sportsListSubCategory.sportsListCategory.name}}</pre>
+                                            <pre>{{item.matchId}}</pre>
+                                            <pre>{{item.sport.sportslist.sportsListSubCategory.isTeam}}</pre> -->
+                      </td>
+                      <td>
+                        {{item.player1}}
+                      </td>
+                      <td>{{item.player2}}</td>
+                      <td>{{item.set}}</td>
+                      <td>
+                        <a class="btn btn-primary" target="_blank" ng-click="specificFormat(item)">
+                                                <i class="fa fa-pencil"></i> Edit
+                                              </a>
+                        <a class="btn btn-danger" ng-click="confDel(item._id)">
+                                                <i class="fa fa-trash"></i> Delete
+                                              </a>
+                      </td>
+                      <!--<td ng-repeat="but in json.json.action">
+                                                                  <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">
+                                                                      <i class="fa" ng-class="but.icon"></i>{{but.name}}
+                                                                  </a>
+                                                              </td>-->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- QUALIFYING KNOCKOUT END -->
+
+            <!-- LEAGUE CUM KNOCKOUT -->
+            <!-- QUALIFYING KNOCKOUT -->
+            <div class="qualifying-knockout-holder" ng-if="drawType==='League cum Knockout'">
+              <div class="table-responsive">
+                <!--<div class="table-responsive " ng-show="totalItems>0 ">-->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>
+                        Match Id
+                      </th>
+                      <th>
+                        Round
+                      </th>
+                      <th>
+                        Player1
+                      </th>
+                      <th>
+                        Player 2
+                      </th>
+                      <th>
+                        Score
+                      </th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr ng-repeat="item in items">-->
+                    <!-- <tr ng-repeat="item in items"> -->
+                    <tr ng-repeat="item in items|filter:item.matchId">
+                      <!--<tr>-->
+                      <td>{{($index + 1)+((form.page-1)*maxRow)}}</td>
+                      <!--<td>{{($index + 1)}}</td>-->
+                      <td>{{item.matchId}}</td>
+                      <td>{{item.round}}
+                        <!-- <pre>{{item.sport.sportslist.sportsListSubCategory.sportsListCategory.name}}</pre>
+                                                          <pre>{{item.matchId}}</pre>
+                                                          <pre>{{item.sport.sportslist.sportsListSubCategory.isTeam}}</pre> -->
+                      </td>
+                      <td>
+                        {{item.player1}}
+                      </td>
+                      <td>{{item.player2}}</td>
+                      <td>{{item.set}}</td>
+                      <td>
+                        <a class="btn btn-primary" target="_blank" ng-click="specificFormat(item)">
+                                                              <i class="fa fa-pencil"></i> Edit
+                                                            </a>
+                        <a class="btn btn-danger" ng-click="confDel(item._id)">
+                                                              <i class="fa fa-trash"></i> Delete
+                                                            </a>
+                      </td>
+                      <!--<td ng-repeat="but in json.json.action">
+                                                                                <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">
+                                                                                    <i class="fa" ng-class="but.icon"></i>{{but.name}}
+                                                                                </a>
+                                                                            </td>-->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- QUALIFYING KNOCKOUT END -->
+            <!-- LEAGUE CUM KNOCKOUT END -->
+
+
+            <!-- <div class="tableData " ng-show="totalItems===0 ">
+              <h5>No data found</h5>
+            </div>
+            <div class="tableData " ng-show="totalItems===undefined ">
+              <h5>Loading Data</h5>
+            </div> -->
+            <ul ng-if="totalItems" ng-change="viewTable()" uib-pagination total-items="totalItems" items-per-page="maxRow" ng-model="form.page"
+              max-size="template.pageMax" class="pagination-sm" boundary-links="true " force-ellipses="true "></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

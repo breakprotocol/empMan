@@ -1,0 +1,96 @@
+<div class="">
+    <form name="detailForm" role="form" class="sec">
+        <div class="">
+            <div class="col-md-12 drop-2">
+                <div class="form-group">
+                    <label>Match-ID*</label>
+                    <input type="text" name="matchId" ng-model="form.matchId" class="form-control" placeholder="Enter Match-ID" required>
+                    <div class="error-msg" ng-if="detailForm.rulesname.$invalid && detailForm.rulesname.$touched">Please Enter Valid Name *</div>
+                </div>
+            </div>
+        </div>
+        <!--</div>-->
+    </form>
+    <div class="col-md-12 drop-1">
+        <label>Draw Formats*</label>
+        <select class="form-control" ng-model="form.resultType">
+          <option  value="knockout">Knockout</option>
+          <option  value="heat">Heat</option>
+          <option  value="direct-final">Direct Final</option>
+          <option  value="league-cum-knockout">League cum Knockout</option>
+          <option  value="qualifying-knockout">Qualifying Knockout</option>
+          <option  value="qualifying-round">Qualifying Round</option>
+          <option  value="swiss-league">Swiss League</option>
+        </select>
+    </div>
+
+    <div class="col-md-12 drop-2" ng-if="form.resultType=='qualifying-knockout'">
+        <label>Excel Type</label>
+        <select class="form-control" ng-model="form.excelType">
+                        <option  value="qualifying">Qualifying</option>
+                        <option  value="knockout">Knockout</option>
+                        <!--<option  value="league">League</option>-->
+                    </select>
+    </div>
+
+    <div class="col-md-12 drop-2" ng-if="form.resultType=='knockout'||form.excelType=='knockout' || form.resultType=='league-cum-knockout'">
+        <label>Knockout Range</label>
+        <select class="form-control" ng-model="form.range">
+          <option  value=2>2</option>
+          <option  value=4>4</option>
+          <option  value=8>8</option>
+          <option  value=16>16</option>
+          <option  value=32>32</option>
+          <option  value=64>64</option>
+          <option  value=128>128</option>
+          <option  value=256>256</option>
+          <option  value=512>512</option>
+        </select>
+    </div>
+
+
+    <!--<form name="detailForm" role="form" class="sec" ng-if="form.resultType=='knockout'">
+      <div class="">
+        <div class="col-md-12 drop-2">
+          <div class="form-group">
+            <label>Knockout range</label>
+            <input type="number" name="range" ng-model="form.range" class="form-control" placeholder="Enter Range" required>
+            <div class="error-msg" ng-if="detailForm.rulesname.$invalid && detailForm.rulesname.$touched">Please Enter Valid Name *</div>
+          </div>
+        </div>
+      </div>
+    </form>-->
+    <div class="col-md-12 drop-2" ng-if="form.resultType!='qualifying-knockout'&&form.resultType!='qualifying-round'&&form.resultType!='league-cum-knockout'&&form.resultType!='direct-final'&&form.resultType!='swiss-league'">
+        <label>Sport Type*</label>
+        <select class="form-control" ng-model="form.playerType">
+          <option  value="team">Team</option>
+          <option  value="individual">Individual</option>
+        </select>
+    </div>
+    <div class="col-md-12 drop-1" ng-if="form.excelType=='knockout' || form.resultType=='knockout' || form.resultType=='league-cum-knockout'">
+        <label>Third Place*</label>
+        <select class="form-control" ng-model="form.thirdPlace">
+          <option  value="yes">YES</option>
+          <option  value="no">NO</option>
+        </select>
+    </div>
+    <!--<div class="">
+        <div class="col-md-12">
+           
+            <upload-image no-view type="excel" ng-model="form.file" ng-callback="excelUploaded();"></upload-image>
+        </div>
+    </div>
+
+    <div class="match-nomatch-buttons">
+        <div class="">
+            <div class="col-md-4">
+                <button class="btn btn-green-outline btn-scoring" ng-click="$dismiss()">back</button>
+            </div>
+
+            <div class="col-md-4">
+                <button class="btn btn-green-outline btn-scoring" ng-click="uploadExcelMatch(form)">Save</button>
+            </div>
+
+        </div>
+    </div>-->
+</div>

@@ -1,0 +1,45 @@
+<div class="form-group">
+  <!-- <label for="exampleInputEmail1" style="margin:5px;">Image Upload</label> -->
+  <div class="img-box" ng-if="model && !isMultiple" ng-hide="noShow">
+    <a href="{{model|uploadpath}}" fancybox-box>
+      <img ng-src="{{model|uploadpath}}" class="img-responsive uploadingImage img-thumbnail" ng-if="type=='image'" />
+    </a>
+    <!--<iframe src="{{model|uploadpath}}" style="width:400px; height:400px;" frameborder="0" ng-if="type=='pdf'"></iframe>-->
+    <a href="{{model|uploadpath}}" target="_new">
+      <img ng-src="../../img/pdf.png" class="img-responsive uploadingImage" ng-if="type=='pdf' && uploadStatus === 'uploaded'" />
+    </a>
+    <a href="{{model|uploadpath}}" target="_new">
+        <img ng-src="../../img/pdf.png" class="img-responsive uploadingImage" ng-if="type=='pdf' && uploadStatus !== 'uploaded'" />
+      </a>
+  </div>
+  <div class="clearfix" ng-if="model && isMultiple" ng-hide="noShow">
+    <!-- <pre>{{model}}</pre>
+    <pre>{{sImage}}</pre> -->
+    <div class="img-box" style="float:left;" ng-repeat="sImage in model track by $index">
+      <a href="{{sImage.image|uploadpath}}" fancybox-box>
+        <img alt="" ng-src="{{sImage.image|uploadpath}}" class="img-responsive uploadingImage img-thumbnail" />
+      </a>
+    </div>
+  </div>
+  <div class="btn-upload btn btn-primary btn-outline btn-small create-btn">
+    <input id="inputImage" ng-show="!isMultiple && type=='image'" type="file" accept="image/*" image="image" title="Choose Files"
+      class="btn-primary">
+    <input id="inputImage" ng-show="!isMultiple && type=='pdf'" type="file" image="image" title="Choose Files" class="btn-primary">
+    <input id="inputImage" ng-show="!isMultiple && type=='image|pdf'" type="file" accept="image/*" image="image" title="Choose Files"
+      class="btn-primary">
+    <input id="inputImage" ng-show="!isMultiple && type=='excel'" type="file" image="image" title="Choose Files" class="btn-primary">
+    <input id="inputImage" ng-show="!isMultiple" type="file" ng-if="type=='all'" image="image" title="Choose Files" class="btn-primary">
+    <input id="inputImage" ng-show="isMultiple" type="file" accept="image/*" image="image" title="Choose Multiple Files" class="btn-primary"
+      multiple>
+    <span>CHOOSE FILE</span>
+    <!-- <a class="btn btn-primary btn-outline btn-small create-btn" ng-if="!isMultiple">Choose File</a> -->
+    <!-- <a class="btn btn-primary btn-outline btn-small create-btn" ng-if="isMultiple">Choose Files</a> -->
+  </div>
+  <br ng-show="isMultiple">
+  <button ng-show="isMultiple" class="btn btn-danger btn-outline btn-small create-btn" ng-click="clearOld()">CLEAR FILES</button>
+  <span class="label label-success" ng-if="uploadStatus == 'uploaded'" ng-show="!isMultiple">Document Uploaded - {{image.file.name}}</span>
+  <span class="label label-success" ng-if="uploadStatus == 'uploaded'" ng-show="isMultiple">Document Uploaded - {{image.length}}</span>
+  <span class="label label-warning" ng-if="uploadStatus == 'uploading'" ng-show="!isMultiple">Uploading Document {{image.file.name}}</span>
+  <span class="label label-warning" ng-if="uploadStatus == 'uploading'" ng-show="isMultiple">Uploading Document {{image.length}}</span>
+  <span class="label label-danger" ng-if="incorrectFile && !isMultiple">Please upload only Pdf file</span>
+</div>

@@ -1,0 +1,54 @@
+{
+    "title": "Config Property",
+    "description": "List of Configuration",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Type",
+        "isSort": "",
+        "tableRef": "institutionType"
+    }, {
+        "name": "City",
+        "isSort": "",
+        "tableRef": "city"
+    }, {
+        "name": "District",
+        "isSort": "",
+        "tableRef": "district"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editConfigProperty",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete ConfigProperty",
+        "content": "Are you sure you want to delete ConfigProperty?",
+        "api": "ConfigProperty/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createConfigProperty"
+    }],
+
+    "apiCall": {
+        "url": "ConfigProperty/search",
+        "params": "_id"
+    }
+}

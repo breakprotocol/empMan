@@ -1,0 +1,56 @@
+{
+    "title": "Edit Rules and Regulations",
+    "name": "Rules",
+    "jsonPage": "viewRules",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter Name",
+            "id": "name",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        },
+        {
+            "name": "Rules and Regulations",
+            "isSort": "",
+            "tableRef": "rulesAndRegulation",
+            "type": "wysiwyg",
+            "placeholder": "Enter name",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitRules",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewRules"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewRules"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Rules/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Rules/getOne",
+        "params": "_id"
+    }
+
+}

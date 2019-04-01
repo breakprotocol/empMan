@@ -1,0 +1,59 @@
+
+
+<div class="account-user-sec">
+    <div class="account-sec">
+        <div class="account-top-bar">
+        </div>
+        <div class="acount-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+
+                        <div class="form-horizontal"></div>
+                        <div class="form-group">
+                        <div class="col-lg-12 col-sm-12 col-xs-12 alert alert-success" ng-show="LoginFailurebool">
+                              <strong>{{LoginFailureMessage}}</strong>
+                              </div>
+                            <h2>Users Login</h2>
+                            <form><!-- 
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">User Name</label>
+                                <input type="email"  class="form-control" ng-model="formData.username">
+                                 </div> -->
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Username</label>
+                                <input type="text" class="form-control"  placeholder="" ng-model="formData.username">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control"  placeholder="" ng-model="formData.password">
+                              </div>
+                              <button type="submit" class="btn btn-primary" ng-click="login(formData)">Login</button>
+                            </form>
+                                
+                                <!-- <button type="submit" class="btn btn-primary" ng-click="goRegister()">Register</button> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="login-to-cpanel">
+                    <a ui-sref="login-to-cpanel"><button type="submit" class="btn btn-primary">Login To Cpanel</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">User Name</label>
+    <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="" ng-model="formData.username">
+     </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control"  placeholder="" ng-model="formData.password">
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="login(formData)">Login</button>
+</form> -->

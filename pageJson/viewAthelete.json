@@ -1,0 +1,81 @@
+{
+    "title": "Athlete Registration",
+    "description": "List of Registered Athelete",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "SFA-ID",
+        "isSort": "",
+        "tableRef": "sfaId"
+    }, {
+        "name": "Athlete Name",
+        "isSort": "",
+        "tableRef": "firstName"
+    }, {
+        "name": "Middle Name",
+        "isSort": "",
+        "tableRef": "middleName"
+    }, {
+        "name": "Surname",
+        "isSort": "",
+        "tableRef": "surname"
+    }, {
+        "name": "Verification Status",
+        "isSort": "",
+        "tableRef": "status"
+    }, {
+        "name": "Payment Mode",
+        "isSort": "",
+        "tableRef": "registrationFee"
+    }, {
+        "name": "Payment Status",
+        "isSort": "",
+        "tableRef": "paymentStatus"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editAthelete",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete User",
+        "content": "Are you sure you want to delete User?",
+        "api": "athelete/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+
+    "button": [{
+        "name": "Excel Export",
+        "icon": "print",
+        "class": "btn-success",
+        "type": "redirect",
+        "text": "export",
+        "linkType": "admin",
+        "action": "Athelete/generateExcelOld"
+    }, {
+        "name": "Upload For ABC Excel",
+        "icon": "delete",
+        "class": "btn-warning",
+        "type": "redirect",
+        "action": "excel-upload/User",
+        "linkType": "internal"
+    }],
+
+
+    "apiCall": {
+        "url": "Athelete/search",
+        "params": "_id"
+    }
+}

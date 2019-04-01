@@ -1,0 +1,46 @@
+{
+    "title": "Sports List",
+    "description": "List of Sports List",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editSportsListCategory",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete SportsListCategory",
+        "content": "Are you sure you want to delete SportsListCategory?",
+        "api": "SportsListCategory/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createSportsListCategory"
+    }],
+
+    "apiCall": {
+        "url": "SportsListCategory/search",
+        "params": "_id"
+    }
+}
